@@ -26,6 +26,14 @@ function App() {
           user:user
         })
       })
+      console.log( spotify.getUserPlaylists())
+      spotify.getUserPlaylists().then(playlists=>{
+        console.log("playlists",playlists)
+        dispatch({
+          type:'SET_PlAYLISTS',
+          playlists:playlists
+        })
+      })
     }
   },[])
   console.log(token)

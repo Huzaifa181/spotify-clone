@@ -15,6 +15,12 @@
     padding: 10px;
 }
 
+.sidebar > hr{
+    border: 1px solid #282828;
+    width: 90%;
+    margin: 10px auto;
+}
+
 .sidebar__title{
     font-size: 12px;
     margin-left: 10px;
