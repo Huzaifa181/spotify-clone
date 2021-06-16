@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
-import DataLayer from './DataLayer';
-import { DataLayer } from "./DataLayer";
+import {DataLayer} from './DataLayer';
 import reducer,{initialState} from './reducer'
 
 ReactDOM.render(
