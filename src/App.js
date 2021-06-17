@@ -20,7 +20,7 @@ function App() {
         token:_token
       })
       spotify.setAccessToken(_token)
-      spotify.getMe().then(user=>{
+      spotify.getMe().then((user)=>{
         dispatch({
           type:'SET_USER',
           user:user
@@ -32,6 +32,13 @@ function App() {
         dispatch({
           type:'SET_PlAYLISTS',
           playlists:playlists
+        })
+      })
+      spotify.getPlaylist('23jojkdsok').then(response=>{
+        console.log("response",response)
+        dispatch({
+          type:'SET_DISCOVER_WEEKLY',
+          discover_weekly:response
         })
       })
     }
