@@ -19,9 +19,14 @@ const Sidebar = () => {
         <br/>
         <strong className="sidebar__title">PLAYLISTS</strong>
         <hr/>
-        {playlists?.items?.map(playlist=>{
+        {
+            playlists?.items?.length && 
+        playlists?.items?.map(playlist=>{
             <SidebarOption title={playlist.name}/>
-        })}
+        })
+        }
+        {!playlists?.items?.length &&
+        <p>No playlist in your account</p>}
         </div>
     );
 }

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
-import Login from './Login'
-import Player from './Player'
+import Login from './Login';
+import Player from './Player';
 import {getTokenFromUrl} from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { useDataLayerValue } from "./DataLayer";
 
 const spotify =new SpotifyWebApi();
 function App() {
-  const [{user,token},dispatch] =useDataLayerValue();
+  const [{token},dispatch] =useDataLayerValue();
   useEffect(()=>{
     const hash=getTokenFromUrl();
     window.location.hash=''
@@ -26,16 +26,13 @@ function App() {
           user:user
         })
       })
-      console.log( spotify.getUserPlaylists())
       spotify.getUserPlaylists().then(playlists=>{
-        console.log("playlists",playlists)
         dispatch({
           type:'SET_PlAYLISTS',
           playlists:playlists
         })
       })
       spotify.getPlaylist('23jojkdsok').then(response=>{
-        console.log("response",response)
         dispatch({
           type:'SET_DISCOVER_WEEKLY',
           discover_weekly:response
@@ -43,7 +40,6 @@ function App() {
       })
     }
   },[])
-  console.log(token)
   return (
     <div className='app'>
       {
